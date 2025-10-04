@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { LocationSelector } from './LocationSelector';
 import { ShoppingCart, User, Menu, Package, Shield } from 'lucide-react';
 import { Button } from './ui/button';
 import { useAuth } from '@/contexts/AuthContext';
@@ -18,6 +19,11 @@ export const Header = () => {
     <>
       <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
         <div className="container mx-auto px-4 lg:px-6">
+          {/* Top Bar with Location */}
+          <div className="hidden md:flex h-10 items-center justify-end border-b">
+            <LocationSelector />
+          </div>
+          
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2 font-heading font-bold text-xl text-primary hover:text-accent transition-colors">

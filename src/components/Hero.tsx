@@ -1,92 +1,180 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight, Package, Globe, ShoppingBag } from 'lucide-react';
-import { Button } from './ui/button';
+import { HeroCard } from './HeroCard';
 import { motion } from 'framer-motion';
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-primary to-primary-hover text-primary-foreground">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--accent)) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
+    <section className="container mx-auto px-4 lg:px-6 py-8">
+      {/* Masonry Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-4 auto-rows-[200px]">
+        
+        {/* Row 1 */}
+        {/* Card 1 - Top Left */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="md:col-span-2 lg:col-span-3 row-span-1"
+        >
+          <HeroCard
+            title="Shop from India, we deliver to your doorstep"
+            linkText="Learn more"
+            linkUrl="/services"
+            image="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=800&q=80"
+            textColor="text-white"
+          />
+        </motion.div>
 
-      <div className="container mx-auto px-4 lg:px-6 relative z-10">
-        <div className="py-20 md:py-32">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Premium Global Shopping
-              <span className="block text-accent mt-2">Made Simple</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-              Experience seamless international shopping with Venkat Express. We purchase and ship authentic Indian products directly to your doorstep worldwide.
-            </p>
+        {/* Card 2 - Large Hero Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="md:col-span-2 lg:col-span-6 row-span-2"
+        >
+          <HeroCard
+            title="Global Shipping in as fast as 5-7 days"
+            buttonText="Get a Quote"
+            buttonUrl="/services"
+            tag="⚡️ Express Shipping"
+            image="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=1200&q=80"
+            textColor="text-white"
+            className="h-full"
+          />
+        </motion.div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link to="/products">
-                <Button size="lg" className="gradient-gold hover:shadow-gold text-lg px-8">
-                  Browse Products
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/services">
-                <Button size="lg" variant="outline" className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8">
-                  Our Services
-                </Button>
-              </Link>
-            </div>
+        {/* Card 3 - Top Right */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="md:col-span-2 lg:col-span-3 row-span-1"
+        >
+          <HeroCard
+            title="Hot New Arrivals in Decor"
+            linkText="Shop now"
+            linkUrl="/products"
+            image="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80"
+            textColor="text-white"
+          />
+        </motion.div>
 
-            {/* Feature Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="bg-card/10 backdrop-blur-sm rounded-xl p-6 border border-primary-foreground/20"
-              >
-                <ShoppingBag className="h-12 w-12 text-accent mb-4 mx-auto" />
-                <h3 className="font-heading font-semibold text-xl mb-2">Buy For You</h3>
-                <p className="text-sm text-primary-foreground/80">
-                  Browse our catalog or request specific items. We purchase and ship to you.
-                </p>
-              </motion.div>
+        {/* Row 2 */}
+        {/* Card 4 - Mid Left */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="md:col-span-2 lg:col-span-3 row-span-2"
+        >
+          <HeroCard
+            title="Shop Top Categories: Food & Decor"
+            linkText="Shop All"
+            linkUrl="/products"
+            image="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&q=80"
+            textColor="text-white"
+            className="h-full"
+          />
+        </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="bg-card/10 backdrop-blur-sm rounded-xl p-6 border border-primary-foreground/20"
-              >
-                <Package className="h-12 w-12 text-accent mb-4 mx-auto" />
-                <h3 className="font-heading font-semibold text-xl mb-2">Ship Your Items</h3>
-                <p className="text-sm text-primary-foreground/80">
-                  Already have items? We'll collect and ship them internationally.
-                </p>
-              </motion.div>
+        {/* Card 5 - Mid Middle Left */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="md:col-span-2 lg:col-span-3 row-span-1"
+        >
+          <HeroCard
+            title="New Artisan Collection"
+            linkText="Shop now"
+            linkUrl="/products"
+            image="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&q=80"
+            textColor="text-white"
+          />
+        </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="bg-card/10 backdrop-blur-sm rounded-xl p-6 border border-primary-foreground/20"
-              >
-                <Globe className="h-12 w-12 text-accent mb-4 mx-auto" />
-                <h3 className="font-heading font-semibold text-xl mb-2">Global Delivery</h3>
-                <p className="text-sm text-primary-foreground/80">
-                  Reliable shipping to 50+ countries with full tracking support.
-                </p>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
+        {/* Card 6 - Flash Sale */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="md:col-span-2 lg:col-span-3 row-span-1"
+        >
+          <HeroCard
+            title="Up to 30% Off"
+            tag="Flash Deals"
+            linkText="Shop now"
+            linkUrl="/products"
+            bgColor="bg-accent/10"
+            textColor="text-foreground"
+          />
+        </motion.div>
+
+        {/* Card 7 - Festival Gift Catalog */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          className="md:col-span-2 lg:col-span-3 row-span-1"
+        >
+          <HeroCard
+            title="Introducing our Festival Gift Catalog"
+            linkText="Shop now"
+            linkUrl="/products"
+            image="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=800&q=80"
+            textColor="text-white"
+          />
+        </motion.div>
+
+        {/* Card 8 - Indian Sweets */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="md:col-span-2 lg:col-span-3 row-span-2"
+        >
+          <HeroCard
+            title="Authentic Indian Sweets, Delivered Fresh"
+            tag="Express Delivery"
+            linkText="Shop now"
+            linkUrl="/products"
+            image="https://images.unsplash.com/photo-1606763750531-55f94e0498f3?w=800&q=80"
+            textColor="text-white"
+            className="h-full"
+          />
+        </motion.div>
+
+        {/* Row 3 */}
+        {/* Card 9 - Mango Pickle */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+          className="md:col-span-2 lg:col-span-3 row-span-1"
+        >
+          <HeroCard
+            title="New: Malabar Black Peppercorns"
+            linkText="Shop now"
+            linkUrl="/products"
+            image="https://images.unsplash.com/photo-1596040033229-a0b3b684e2e8?w=800&q=80"
+            textColor="text-white"
+          />
+        </motion.div>
+
+        {/* Card 10 - Wide Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.0 }}
+          className="md:col-span-4 lg:col-span-6 row-span-1"
+        >
+          <HeroCard
+            title="Can't find it? Let us source it for you."
+            buttonText="Make a Request"
+            buttonUrl="/services"
+            bgColor="bg-accent/20"
+            textColor="text-foreground"
+          />
+        </motion.div>
       </div>
     </section>
   );
